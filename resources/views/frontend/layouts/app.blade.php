@@ -152,10 +152,10 @@
     })
     
 
-    var rect = $('#about')[0].getBoundingClientRect();
+    var rect = $('body')[0].getBoundingClientRect();
     var mouse = {x:0, y:0, moved:false}
 
-    $('#about').mousemove(function(e) {
+    $('body').mousemove(function(e) {
       mouse.moved = true;
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
@@ -164,6 +164,7 @@
     TweenLite.ticker.addEventListener('tick', function() {
       if(mouse.moved) {
         parallaxIt('.img-about', -30);
+        parallaxIt('.img-benefit', -50);
         parallaxIt('.img-cloud-1', -100);
       }
       mouse.moved = false;
@@ -177,7 +178,7 @@
     }
 
     $(window).on('resize scroll', function() {
-      rect = $('#about')[0].getBoundingClientRect();
+      rect = $('body')[0].getBoundingClientRect();
     })
 
 
